@@ -61,15 +61,23 @@ cacheSolve <- function(cacheMtrx, ...) {
 
 }
 
-# Test the cache functions
+# Test the cache functions####################################
 m_input <- cbind (1:2, 3:4)
 m_input
 cache_m_input <-makeCacheMatrix(m_input)
 m_input_inverse <- cacheSolve(cache_m_input)
 m_input_inverse
+
+
 # second call will retrive from Cache
 m_input_inverse <- cacheSolve(cache_m_input)
 m_input_inverse
 
-# End of Test cache functions
+#Lets get the inverse of another matrix object
+m_input_nw <- cbind (5:6, 7:8)
+cache_m_input$setMtrx(m_input_nw)
+m_input_inverse <- cacheSolve(cache_m_input)
+m_input_inverse
+
+# End of Test cache functions##################################
 
